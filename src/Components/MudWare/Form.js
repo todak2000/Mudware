@@ -11,7 +11,7 @@ const Form = (props) => {
 
     const [pressure, setPressure] = useState('');
     const [temperature, setTemperature] = useState('');
-    const [answer, setAnswer] = useState(35.03);
+    const [answer, setAnswer] = useState('');
     const [pv, setPv] = useState('');
     const [mudType, setMudType] = useState('');
     const [showResult, setShowResult] = useState(false)
@@ -56,6 +56,7 @@ const Form = (props) => {
         
         
         if (mudType === "Water"){
+            console.log(waterBasedAI(pressure,temperature,pv))
             setAnswer(waterBasedAI(pressure,temperature,pv))
         }
         else if (mudType === "Oil"){
@@ -84,6 +85,7 @@ const Form = (props) => {
                             <button className="backy" onClick={()=>{
                                 setShowButton(true)
                                 setShowResult(false)
+                                setAnswer('')
                             }} 
                             > 
                             <Arrow /></button>
